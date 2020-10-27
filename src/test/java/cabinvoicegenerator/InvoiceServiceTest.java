@@ -35,14 +35,23 @@ public class InvoiceServiceTest
 		assertEquals(5, fare, 0.0);
 	}
 	
+	/*
+	 * @Test public void givenMultipleRides_ShouldReturnTotalFare() { Ride rides[] =
+	 * { new Ride(3.0, 5), new Ride(0.1, 1) };
+	 * 
+	 * double fare = invoiceGenerator.calculateTotalFare(rides); assertEquals(40,
+	 * fare, 0.0); }
+	 */
+	
 	@Test
-	public void givenMultipleRides_ShouldRetirnTotalFare()
+	public void givenMultipleRides_ShouldReturnInvoiceSummary()
 	{
 		Ride rides[] = { new Ride(3.0, 5),
 						 new Ride(0.1, 1)			
-		};
+						};
 		
-		double fare = invoiceGenerator.calculateTotalFare(rides);
-		assertEquals(40, fare, 0.0);
+		InvoiceSummary summary = invoiceGenerator.calculateTotalFare(rides);
+		InvoiceSummary expectedSummary = new InvoiceSummary(2, 40.0);
+		assertEquals(summary, expectedSummary);
 	}
 }
