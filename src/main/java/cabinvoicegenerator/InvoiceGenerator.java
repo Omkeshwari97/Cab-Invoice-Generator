@@ -17,4 +17,16 @@ public class InvoiceGenerator
 		
 		return totalFare; 
 	}
+
+	public double calculateTotalFare(Ride rides[]) 
+	{
+		double totalFare = 0.0;
+		
+		for (Ride ride : rides) 
+		{
+			totalFare = totalFare + calculateFare(ride.getDistance(), ride.getTime());
+		}
+		
+		return totalFare;
+	}
 }
